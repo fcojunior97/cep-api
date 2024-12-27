@@ -6,4 +6,4 @@ INSERT INTO cep (cep, logradouro, bairro, cidade, estado, uf, regiao, ddd) VALUE
 INSERT INTO cep (cep, logradouro, bairro, cidade, estado, uf, regiao, ddd) VALUES ('63900235', 'Rua Aderaldo Ferreira de Araújo', 'Centro', 'Quixadá', 'Ceará', 'CE', 'Nordeste', '88');
 INSERT INTO cep (cep, logradouro, bairro, cidade, estado, uf, regiao, ddd) VALUES ('69650970', 'Rua Augusto Luzeiro', 'Centro', 'Atalaia do Norte', 'Amazonas', 'AM', 'Norte', '92');
 
-INSERT INTO usuario (login, senha) VALUES ('fcojunior', '$2a$12$ejKGUQoYMi6MOy2sS8..o.moE6TFLvcOXLAF.Qp6wbS7zfvW10yzK')
+INSERT INTO usuario (login, senha) VALUES ('admin', '$2a$12$yxwUM6CiODsX7WPn/1cMnuW5l75C8v0KEA7fgTQFPuDwGyz3cJBVq')
