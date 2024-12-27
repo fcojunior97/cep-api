@@ -7,6 +7,7 @@ import com.cep.domain.utils.Utils;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -24,8 +25,8 @@ public class CepService {
                .orElseThrow(() -> new EntidadeNaoEncontradaException("Não foi encontrado dados de endereço com esse cep {" + numeracaoCep  +"}"));
     }
 
-    public List<Cep> buscarPorLogradouro(String numeracaoCep) {
-        List<Cep> ceps = cepRepository.buscarPorLogradouro(numeracaoCep);
+    public List<Cep> buscarPorLogradouro(String logradouro, Integer pagina, Integer itens) {
+        List<Cep> ceps = cepRepository.buscarPorLogradouro(logradouro, PageRequest.of(pagina, itens));
 
         if(ceps.isEmpty()) {
             throw new EntidadeNaoEncontradaException("Não foi encontrado dados de cep com esse nome de logradouro");
@@ -34,8 +35,8 @@ public class CepService {
         return ceps;
     }
 
-    public List<Cep> buscarPorCidade(String cidade) {
-        List<Cep> ceps = cepRepository.buscarPorCidade(cidade);
+    public List<Cep> buscarPorCidade(String cidade, Integer pagina, Integer itens) {
+        List<Cep> ceps = cepRepository.buscarPorCidade(cidade, PageRequest.of(pagina, itens));
 
         if(ceps.isEmpty()) {
             throw new EntidadeNaoEncontradaException("Não foi encontrado dados de cep com esse nome de cidade");
