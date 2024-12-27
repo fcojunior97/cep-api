@@ -1,1 +1,1 @@
-web: java -jar target/cep-api-0.0.1-SNAPSHOT.jar
+web: java $JAVA_TOOL_OPTIONS -jar target/cep-api-0.0.1-SNAPSHOT.jar
