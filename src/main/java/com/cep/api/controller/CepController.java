@@ -2,6 +2,7 @@ package com.cep.api.controller;
 
 import com.cep.api.assembler.CepAssembler;
 import com.cep.api.disassembler.CepDisassembler;
+import com.cep.api.openapi.CepControllerOpenApi;
 import com.cep.api.representationmodel.CepModel;
 import com.cep.api.representationmodel.input.CepInput;
 import com.cep.domain.model.Cep;
@@ -16,7 +17,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/cep/api")
-public class CepController {
+public class CepController implements CepControllerOpenApi {
 
     @Autowired
     private CepService cepService;
@@ -34,14 +35,18 @@ public class CepController {
     }
 
     @GetMapping("/logradouro")
-    public ResponseEntity<List<CepModel>> buscarPorLogradouro(@RequestParam String logradouro) {
-        List<Cep> cepsEncontrado = cepService.buscarPorLogradouro(logradouro);
+    public ResponseEntity<List<CepModel>> buscarPorLogradouro(@RequestParam String logradouro,
+                                                              @RequestParam Integer pagina,
+                                                              @RequestParam Integer itens) {
+        List<Cep> cepsEncontrado = cepService.buscarPorLogradouro(logradouro, pagina, itens);
         return ResponseEntity.ok(cepAssembler.toCollectionModel(cepsEncontrado));
     }
 
     @GetMapping("/cidade")
-    public ResponseEntity<List<CepModel>> buscarPorCidade(@RequestParam String cidade) {
-        List<Cep> cepsEncontrado = cepService.buscarPorCidade(cidade);
+    public ResponseEntity<List<CepModel>> buscarPorCidade(@RequestParam String cidade,
+                                                          @RequestParam Integer pagina,
+                                                          @RequestParam Integer itens) {
+        List<Cep> cepsEncontrado = cepService.buscarPorCidade(cidade, pagina, itens);
         return ResponseEntity.ok(cepAssembler.toCollectionModel(cepsEncontrado));
     }
 
