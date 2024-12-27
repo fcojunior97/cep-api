@@ -1,1 +1,1 @@
-web: java -Xms128m -Xmx256m - jar target/cep-api-0.0.1-SNAPSHOT.jar
+web: java - jar target/cep-api-0.0.1-SNAPSHOT.jar
